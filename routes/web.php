@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rota padrão (home)
+Route::get('/', [OrderController::class, 'index']);
+
+// Rota para cadastrar o pedido
+Route::post('/saveOrder', [OrderController::class, 'saveOrder'])->name('saveOrder');

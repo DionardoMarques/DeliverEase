@@ -21,12 +21,16 @@
 
                 <!-- Cadastrar Pedido -->
                 <div class="my-3">
-                    <form class="form-group" method="POST" action="/api/orders">
+                    <form method="POST" action="{{ route('saveOrder') }}" accept-charset="UTF-8">
                         @csrf
                         <div class="form-group">
-                            <label for="customer_id"><strong>Nome do Cliente</strong></label>
-                            <select class="custom-select" required>
-                                <option>Selecione...</option>
+                            <label for="customer_name"><strong>Nome do Cliente</strong></label>
+                            <select class="custom-select" id="customer_name" name="customer_name" required>
+                                <option value="">Selecione...</option>
+                                @foreach ($customers as $customer)
+                                <option value="{{ $customer->name }}">{{ $customer->name }}</option>
+                                <input type="hidden" value="{{ $customer->id }}" name="customer_id">
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -46,24 +50,28 @@
                 <hr>
 
                 <!-- Tabela de Pedidos -->
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID do Pedido</th>
-                            <th>Nome do Cliente</th>
-                            <th>Data de Entrega</th>
-                            <th>Valor do Frete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Teste</td>
-                            <td>Teste</td>
-                            <td>Teste</td>
-                            <td>Teste</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="max-height: 300px; overflow-y: auto;">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID do Pedido</th>
+                                <th>Nome do Cliente</th>
+                                <th>Data de Entrega</th>
+                                <th>Valor do Frete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                            <tr>
+                                <td>#{{ $order->id }}</td>
+                                <td>{{ $order->customer_name }}</td>
+                                <td>{{ \Carbon\Carbon::parse($order->delivery_date)->format('d/m/Y') }}</td>
+                                <td>R$ {{ $order->freight_value }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

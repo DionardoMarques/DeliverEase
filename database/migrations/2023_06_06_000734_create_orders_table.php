@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('customer_id');
             $table->string('customer_name');
             $table->date('delivery_date');
-            $table->float('freight_value', 8, 2);
+            $table->float('freight_value');
             $table->timestamps();
         });
     }
