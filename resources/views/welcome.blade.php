@@ -21,6 +21,18 @@
 
                 <!-- Cadastrar Pedido -->
                 <div class="my-3">
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+                    @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                    @endif
+
                     <form method="POST" action="{{ route('saveOrder') }}" accept-charset="UTF-8">
                         @csrf
                         <div class="form-group">
@@ -28,10 +40,10 @@
                             <select class="custom-select" id="customer_name" name="customer_name" required>
                                 <option value="">Selecione...</option>
                                 @foreach ($customers as $customer)
-                                <option value="{{ $customer->name }}">{{ $customer->name }}</option>
-                                <input type="hidden" value="{{ $customer->id }}" name="customer_id">
+                                <option value="{{ $customer->name }}" data-id="{{ $customer->id }}">{{ $customer->name }}</option>
                                 @endforeach
                             </select>
+                            <input type="hidden" name="customer_id" id="customer_id" value="">
                         </div>
                         <div class="form-group">
                             <label for="delivery_date"><strong>Data de Entrega</strong></label>
@@ -79,6 +91,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selectField = document.getElementById('customer_name');
+            var hiddenField = document.getElementById('customer_id');
+
+            selectField.addEventListener('change', function() {
+                hiddenField.value = this.options[this.selectedIndex].getAttribute('data-id');
+            });
+        });
+    </script>
+
 </body>
 
 </html>

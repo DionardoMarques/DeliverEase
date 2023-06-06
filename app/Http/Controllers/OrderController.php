@@ -22,8 +22,10 @@ class OrderController extends Controller
         $newOrder->delivery_date = $request->delivery_date;
         $newOrder->freight_value = $request->freight_value;
 
-        $newOrder->save();
-
-        return redirect('/');
+        if ($newOrder->save()) {
+            return redirect('/')->with('success', 'Pedido criado com sucesso!');
+        } else {
+            return redirect('/')->with('error', 'Ocorreu um erro ao tentar criar o pedido.');
+        }
     }
 }
