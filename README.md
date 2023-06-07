@@ -34,7 +34,9 @@ Para rodar o projeto, são necessárias as seguintes tecnologias:
 
     `php artisan key:generate`
     
-6. Abra o arquivo .env e atualize a conexão do banco de dados de acordo com a configuração do seu MySQL:
+6. Crie o banco de dados MySQL para a aplicação.
+    
+7. Abra o arquivo .env e atualize a conexão do banco de dados de acordo com a configuração do seu MySQL:
     
     ```
     DB_CONNECTION=mysql
@@ -45,8 +47,7 @@ Para rodar o projeto, são necessárias as seguintes tecnologias:
     DB_PASSWORD=your_password
     ```
     
- 7. Crie o banco de dados MySQL para a aplicação.
- 8. Execute as migrations para criação das tabelas necessárias no banco de dados:
+ 8. Execute as migrations para criação das tabelas necessárias:
 
     `php artisan migrate`
     
