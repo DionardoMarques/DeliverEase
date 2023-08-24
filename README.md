@@ -1,7 +1,7 @@
 # DeliverEase
 <p>Este é um sistema de gerenciamento de pedidos de entregas baseado em Laravel que permite a criação e visualização destes registros.</p>
 
-![deliver_ease](https://github.com/DionardoMarques/DeliverEase/assets/65215542/de008733-a550-4adb-8c8a-83f754a7453d)
+![deliver_ease](https://github.com/DionardoMarques/DeliverEase/assets/65215542/5684457b-de09-4ffc-aa78-cbb54fc66023)
 
 ## Pré-requisitos
 
