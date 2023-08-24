@@ -1,7 +1,7 @@
-# DeliverEase - Brudam
+# DeliverEase
 <p>Este é um sistema de gerenciamento de pedidos de entregas baseado em Laravel que permite a criação e visualização destes registros.</p>
 
-![DeliverEase_Brudam](https://github.com/DionardoMarques/DeliverEase/assets/65215542/d3f133d2-fbeb-4494-941b-d8f8fc209a44)
+![deliver_ease](https://github.com/DionardoMarques/DeliverEase/assets/65215542/de008733-a550-4adb-8c8a-83f754a7453d)
 
 ## Pré-requisitos
 
