@@ -5,20 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="icon" href="{{ URL::asset('brudam_logo.png') }}" type="image/x-icon" />
     <title>DeliverEase</title>
 </head>
 
 <body>
     <div class="container">
         <div class="card p-2 mt-3">
-            <div class="card-header text-center">DeliverEase - Brudam</div>
+            <div class="card-header text-center">DeliverEase</div>
             <div class="card-body">
-                <!-- Logo Brudam -->
-                <div class="d-flex justify-content-center">
-                    <img src="{{ URL::asset('brudam_logo.png') }}" alt="Logo Brudam">
-                </div>
-
                 <!-- Cadastrar Pedido -->
                 <div class="my-3">
                     @if(session('success'))
